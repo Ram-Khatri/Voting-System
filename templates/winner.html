@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block 'title' %} winner {% endblock %}
+
+{% block 'body' %}
+<style>
+#r1{
+    margin-top:2%;
+    margin-bottom:3%;
+    }
+#users{
+
+    margin:auto;
+    background-color:lightblue;
+}
+
+#img1
+{
+    margin-top:3%;
+    width:200px;
+    height:200px;
+}
+h1{
+display:flex;
+justify-content:center;
+}
+
+</style>
+<div class="row" id="r1" >
+
+     <div class="col-xl-6" id="users">
+         <div class="container text-center" >
+              {% include 'messages/message.html' %}
+             {% if winners %}
+             {% for winner in winners %}
+             <img  id="img1" src={{MEDIA_URL}}{{winner.contestant.image.url}}>
+             <h3>Contest:{{winner.contest.name}}</h3>
+             <h3>Name:{{winner.contestant.username}}</h3>
+             <h4>Address:{{winner.contestant.address}}</h4>
+             <h4>Gender:{{winner.contestant.gender}}</h4>
+             {% endfor %}
+             {% else %}
+             <h1> WELCOME TO VOTING SYSTEM </h1>
+             {% endif %}
+
+         </div>
+
+     </div>
+</div>
+
+
+{% endblock %}

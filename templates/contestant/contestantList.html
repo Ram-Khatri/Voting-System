@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block 'title' %} Contestant-List {% endblock %}
+{% block 'body' %}
+<style> 
+#users{
+    margin-top:6%;
+    position:fixed;
+    background-color:lightblue;
+}
+#contests
+{
+    margin-top:1%;
+    margin-bottom:2%;
+    margin-left:40%;
+    margin-right:0%;
+    position:relative;
+    background-color:lightblue;
+}
+#img1{
+margin-top:3%;
+width:200px;
+height:200px;
+}
+#img2{
+margin-top:3%;
+width:200px;
+height:200px;
+}
+
+</style>
+ <div class="row">
+     <div class="col-xl-4 text-center" id="users">
+         <div class="container">
+             <img  id="img1" src={{MEDIA_URL}}{{user.image.url}}>
+             <h3>Name:{{user.username}}</h3>
+             <h4>Address:{{user.address}}</h4>
+             <h4>Gender:{{user.gender}}</h4>
+
+         </div>
+
+     </div>
+     <div class="col-xl-7 text-center" id="contests">
+         <div class="container">
+           {% if posts %}
+             {% for post in posts %}
+                 <br><h3>Caption:{{post.title}}</h3>
+                 <img  id="img2" src={{MEDIA_URL}}{{post.image.url}}/><br>
+                 <h4>Name:{{post.contestant.username}}</h4>
+                 <h4>Contest:{{post.contest.name}}</h4>
+             {% endfor %}
+           {% else %}
+             <h2 class="text-center">No contestants Yet</h2>
+           {% endif %}
+         </div>
+     </div>
+ </div>
+
+{% endblock %}

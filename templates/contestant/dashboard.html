@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block 'title' %} Contestant-dashboard {% endblock %}
+{% block 'body' %}
+<style> 
+#users{
+    margin-top:6%;
+    position:fixed;
+    background-color:lightblue;
+}
+#contests
+{
+    margin-left:40%;
+    margin-right:0%;
+    position:relative;
+    margin-top:1%;
+    margin-bottom:1%;
+    background-color:lightblue;
+}
+#img1{
+margin-top:3%;
+width:200px;
+height:200px;
+}
+#img2{
+margin-top:3%;
+width:200px;
+height:200px;
+}
+
+</style>
+ <div class="row">
+     <div class="col-xl-4 text-center" id="users">
+         <div class="container">
+             <img  id="img1" src={{MEDIA_URL}}{{user.image.url}}>
+             <h3>Name:{{user.username}}</h3>
+             <h4>Address:{{user.address}}</h4>
+             <h4>Gender:{{user.gender}}</h4>
+             <a href="{% url 'changeprofile' user.id %}" class="btn btn-primary">Change Profile</a>
+
+         </div>
+
+     </div>
+     <div class="col-xl-7 text-center" id="contests">
+         <div class="container">
+             {%  include 'messages/message.html' %}
+             {% for contest in contests %}
+                 <br><img  id="img2" src={{MEDIA_URL}}{{contest.image.url}}>
+                 <h3>Name:{{contest.name}}</h3>
+                 <h4>Contest-type:{{contest.contest_type}}</h4>
+                 <h4>StartDate:{{contest.startdate}}</h4>
+                 <h4>EndDate:{{contest.end_date}}</h4>
+                 <h4>description:</h4><h6>{{contest.description}}</h6>
+                 <a href="{% url 'contestantlist' contest.id %}" style="margin:10px;" class="btn btn-primary">view Contestents</a>
+                 <a href="{% url 'createpost' contest.id %}" style="margin:10px;" class="btn btn-primary">Create Post</a><br>
+                 <a href="{% url 'winner' contest.id%}" style="margin:10px; margin-left:30px;" class="btn btn-primary">view Winner</a>
+             {% endfor %}
+         </div>
+     </div>
+ </div>
+
+{% endblock %}

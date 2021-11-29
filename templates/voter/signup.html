@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block 'title' %} SignUp-Voter {% endblock %}
+{% block 'body' %}
+ <div class="container">
+     <div class="row justify-content-md-center">
+         <div class="col-8">
+             <div class="card signup-card bg-primary">
+                 {% include 'messages/message.html' %}
+                 <div class="card-header">
+                     signUp-Voter
+                 </div>
+                 <div class="card-body">
+                     <form action="{% url 'signupvoter' %}" method="post" enctype="multipart/form-data">
+                        <i class="fa fa-user"><label for="uname">Username:</label><br>{{form.username}}</i>
+                        <br><i class="fa fa-envelope"><label for="email">Email:</label><br>{{form.email}}</i>
+                        <br><i class="fa fa-phone-square-alt"><label for="contact">Contact:</label><br>{{form.contact}}</i>
+                        <br><i class="fa fa-home"><label for="address">Address:</label><br>{{form.address}}</i>
+                        <br><i class="fa fa-image"><label>image:</label></br>{{form.image}}</i>
+                        <br><i class="fa fa-user"><label>gender:</label></br>{{form.gender}}</i>
+                        <br><i class="fa fa-lock"><label for="pass1">Password:</label><br>{{form.password}}</i>
+                        {{ form.password2.errors }}
+                        <br><i class="fa fa-lock"><label for="pass2">Confirm Password:</label><br>{{form.password2}}</i>
+                         {% csrf_token %}
+                         <div class="card-footer">
+                         <button type='submit' id="sbtn" class='btn btn-success' style='float:right;'>signup</button>
+                        </div>
+                     </form>
+                 </div>
+
+             </div>
+         </div>
+     </div>
+ </div>
+{% endblock %}

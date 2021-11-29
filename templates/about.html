@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'title' %} About us {% endblock %}
+
+{% block 'body' %}
+   <div class="container-fluid  " style=" background-color:lightblue; height:100vh;">
+      <div style="margin-top:3%;">
+       <h4 style="margin-left:5%;">Our Purpose:</h4>
+       <h6 style="text-align:justify; margin-left:10%;">       our purpose is to develop an online voting system.
+             In this voting system admin creates a contest,
+             contestants can sign up and participate in the contest and voters
+             can drop their vote to one of the contestant.
+       </h6>
+       <h4 style="margin-top:3%; margin-left:5%;"> Developers team:</h4>
+          <div style=" margin-left:20%;">
+                        <img src="{% static 'images/admin.JPG'%}" style="  height:200px; width:200px;">
+                        <h3><i class="fa fa-user">Name:Ram Bahadur Khatri</i></h3>
+                        <h4><i class="fa fa-phone-square-alt">Contact:9811652676</i></h4>
+                        <h4><i class="fa fa-home">Address:Ghodaghodi-1 sukhad kailali </i></h4>
+
+          </div>
+      </div>
+   </div>
+{% endblock %}

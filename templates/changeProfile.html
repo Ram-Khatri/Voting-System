@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block 'title' %} Change Profile {% endblock %}
+{% block 'body' %}
+ <div class="container">
+     <div class="row justify-content-md-center">
+         <div class="col-8">
+             <div class="card signup-card bg-primary">
+                 {% include 'messages/message.html' %}
+                 <div class="card-header">
+                     Change-Profile
+                 </div>
+                 <div class="card-body">
+                     <form action="{% url 'changeprofile' uid %}" method="post" enctype="multipart/form-data">
+                         {{form.as_p}}
+                         {% csrf_token %}
+                         <div class="card-footer">
+                         <button type='submit' id="sbtn" class='btn btn-success' style='float:right;'>Change</button>
+                        </div>
+                     </form>
+                 </div>
+
+             </div>
+         </div>
+     </div>
+ </div>
+{% endblock %}

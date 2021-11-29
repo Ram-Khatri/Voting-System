@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block 'title' %} SigninForm {% endblock %}
+{% block 'body' %}
+ <div class="container">
+     <div class="row justify-content-md-center">
+         <div class="col-8">
+             <div class="card login-card  bg-primary">
+                 {% include 'messages/message.html' %}
+                 <div class="card-header text-center">
+                     Login
+                 </div>
+                 <div class="card-body">
+                     <form action="{% url 'signin' %}" method="post">
+                         {{ form.as_p}}
+                         {% csrf_token %}
+                         <button type='submit' class='btn btn-success' style='float:right;'>Login</button><br>
+                     </form>
+                     <br>
+                     <a href="{% url 'signupvoter' %}" class="text-white">new here?signUp</a>
+                     <a href="{% url 'password_reset' %}" class="text-white" style="float:right;">forgot password?</a>
+                 </div>
+
+             </div>
+         </div>
+     </div>
+ </div>
+{% endblock %}

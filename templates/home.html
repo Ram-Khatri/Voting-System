@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'title' %} Home page {% endblock %}
+
+{% block 'style' %}
+<style>
+    .slider{
+        margin:0%;
+        padding:0%;
+
+    }
+     img{
+        height:500px;
+        width:100%;
+    }
+</style>
+{% endblock %}
+
+{% block 'body' %}
+
+<body>
+{% include 'messages/message.html'%}
+    <div class="container-fluid slider">
+        <!-- Carousel  -->
+        <div class="carousel">
+            <div class="opacity_carousel"></div>
+            <div id="slide" class="carousel slide" data-ride="carousel">
+                <!-- carousel indicators -->
+                <ul class="carousel-indicators">
+                    <li data-target="#slide" data-slide-to="0" class="active"></li>
+                    <li data-target="#slide" data-slide-to="1"></li>
+                    <li data-target="#slide" data-slide-to="2"></li>
+                </ul>
+                <div class="carousel-inner">
+                    <div class="carousel-item carousel-img-1 active">
+                         <img src="{%static 'images/singing.jpg' %}" alt="Slid Image">
+                        <div class="carousel-caption" style="color:green;">
+                            <h3>Unleash Your singing talend</h3>
+                            <p>Singing is an art so don't be shy to show it.</p>
+                        </div>
+                    </div>
+                    <!-- carousel item -->
+                    <div class="carousel-item carousel-img-2">
+                        <img src="{%static 'images/dance.jpg' %}" alt="Slid Image">
+                        <div class="carousel-caption" style="color:green;">
+                            <h3>Dance: follow your passion </h3>
+                        </div>
+                    </div>
+                    <div class="carousel-item carousel-img-3">
+                        <img src="{%static 'images/Election.png' %}" alt="Slid Image">
+                        <div class="carousel-caption" style="color:green;">
+                            <h3>Be a good politician:</h3>
+                            <p>If you are capable,if you are loyal enough to our country then please fight for the post we need you.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- carousel control -->
+                <a class="carousel-control-prev" href="#slide" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a class="carousel-control-next" href="#slide" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
+            </div>
+        </div>
+
+    {% endblock %}
+    </div>
+</body>
+
+</html>

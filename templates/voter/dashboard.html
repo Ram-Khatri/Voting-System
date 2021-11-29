@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block 'title' %} Voter-dashboard {% endblock %}
+{% block 'body' %}
+<style>
+#users{
+    margin-top:6%;
+    position:fixed;
+    background-color:lightblue;
+}
+#contests
+{
+    margin-top:1%;
+    margin-bottom:2%;
+    margin-left:40%;
+    margin-right:0%;
+    position:relative;
+    background-color:lightblue;
+}
+#img1{
+margin-top:3%;
+width:200px;
+height:200px;
+}
+#img2{
+margin-top:3%;
+width:200px;
+height:200px;
+}
+
+</style>
+ <div class="row">
+     <div class="col-xl-4 text-center " id="users">
+         <div class="container">
+             <img  id="img1" src={{MEDIA_URL}}{{user.image.url}}>
+             <h3>Name:{{user.username}}</h3>
+             <h4>Address:{{user.address}}</h4>
+             <h4>Gender:{{user.gender}}</h4>
+             {% comment %} <a href="{% url 'deleteUser' user.id %}" class="btn btn-danger">Delete</a> {% endcomment %}
+             <a href="{% url 'changeprofile' user.id %}" class="btn btn-primary">Change Profile</a>
+
+         </div>
+
+     </div>
+     <div class="col-xl-7 text-center " id="contests">
+         <div class="container">
+          {%  include 'messages/message.html' %}
+            {% if contests %}
+             {% for contest in contests %}
+                 <br><img  id="img2" src={{MEDIA_URL}}{{contest.image.url}}>
+                 <h3>Name:{{contest.name}}</h3>
+                 <h4>Contest-type:{{contest.contest_type}}</h4>
+                 <h4>StartDate:{{contest.startdate}}</h4>
+                 <h4>EndDate:{{contest.end_date}}</h4>
+                 <h4>description:</h4><h6>{{contest.description}}</h6>
+                 <a href="{% url 'contestantlistforvoter' contest.id %}" style="margin:10px;" class="btn btn-primary">view Contestents</a>
+                 <a href="{% url 'winner' contest.id%}" style="margin:10px;" class="btn btn-primary">view Winner</a>
+             {% endfor %}
+            {% else %}
+              <h2>No contests is Held yet </h2>
+            {% endif %}
+         </div>
+     </div>
+ </div>
+
+{% endblock %}

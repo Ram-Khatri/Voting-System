@@ -1,0 +1,51 @@
+html{
+     margin:0%;
+     padding:0%;
+     height:100%;
+}
+body{
+     margin:0px;
+     padding:0px;
+     overflow-x:hidden;
+    background-image:url('../images/votingBackground.jpg');
+    background-size:cover;
+    background-repeate:no;
+    display:flex;
+    flex-direction:column;
+    height:100%;
+}
+.card{
+    width: 400px;
+    margin:auto;
+    margin-top:2%;
+    margin-bottom:2%;
+
+
+}
+.errorlist li{
+    color:red;
+}
+.card-footer{
+    padding:0%;
+}
+#sbtn{
+    margin-top: 1%;
+    margin-bottom: 0%;
+}
+.sticky-footer{
+    margin-top:auto;
+    height:115px;
+
+}
+.sticky-footer .contactdiv{
+    margin-left:20%;
+
+}
+.sticky-footer .followdiv{
+    float:right;
+    margin-top:-6.5%;
+    margin-right:20%;
+}
+
+
+
